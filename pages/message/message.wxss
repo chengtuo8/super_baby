@@ -1,0 +1,106 @@
+page {
+  background-color: #fff;
+}
+
+.msg-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.msg-wrap .msg-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  padding: 40rpx 30rpx 30rpx 30rpx;
+  border-bottom: 2rpx solid #eee;
+}
+
+.msg-wrap .userInfo {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 20rpx 30rpx;
+}
+
+.userInfo.fixed {
+  position: fixed;
+  justify-content: center;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+  background-color: #fff;
+}
+
+.userInfo.fixed .avatar {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.userInfo.fixed .nickName {
+  font-size: 25rpx;
+  font-weight: 500;
+}
+
+.userInfo .avatar {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.userInfo .nickName {
+  font-size: 30rpx;
+  font-weight: bold;
+  letter-spacing: 1rpx;
+}
+
+.msg-wrap .msg-detail {
+  text-align: justify;
+  padding: 0 30rpx 110rpx;
+  margin-bottom: 30rpx;
+}
+
+.msg-wrap .msg-detail text {
+  letter-spacing: 2rpx;
+  line-height: 50rpx;
+}
+
+.msg-wrap .feature {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100rpx;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+}
+
+.msg-wrap .feature view,
+.msg-wrap .feature button {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  text-align: center;
+  line-height: normal;
+  color: inherit;
+  background-color: #fff;
+  font-weight: 500;
+}
+
+.msg-wrap .feature icon {
+  font-size: 38rpx;
+  margin-bottom: 10rpx;
+}
+
+.msg-wrap .feature text {
+  font-size: 20rpx;
+}
+
+.msg-wrap .feature .appreciate.active icon,
+.msg-wrap .feature .appreciate.active text,
+.msg-wrap .feature .collect.active icon,
+.msg-wrap .feature .collect.active text {
+  color: #f37b1d;
+}
+

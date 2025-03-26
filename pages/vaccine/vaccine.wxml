@@ -1,0 +1,21 @@
+
+<view class="body">
+  <view class="plate {{list.overtime ? 'overtime' : ''}}" wx:for="{{vaccineList}}" wx:key="index" wx:for-item="list" wx:for-index="i" data-day="{{list.day}}">
+    <view class="title">{{list.time}} <text class="{{list.nowadays ? 'nowadays' : ''}}">(近期可接种)</text> </view>
+    <view class="vas" wx:for="{{vaccineList[i].vas}}" wx:key="index" data-id="{{index}}">
+      <view class="text">
+      <view class="text-01"><radio class="pink disable" disabled="{{list.overtime}}" bindtap="handleCheck" checked="{{item.hasDone}}" data-num="{{list.num}}" data-item="{{item.item}}" id="{{item.name}}"></radio>{{item.name}}</view>
+      <view class="text-02">{{item.turn}}</view>
+      <view class="text-03">{{item.text}}</view>
+      <view class="divLine"></view>
+      <!-- <icon wx:if="{{item.hasDone}}" class="icon icon-jiezhong hasDone"/> -->
+      <!-- 过期提醒 -->
+      <icon class="icon icon-yiguoqi overdue"/>
+      </view>
+      <view>
+        <!-- <image class='{{item.must ? "must":"hidden"}}' src="http://139.155.249.105:7071//upload_a7a4527d3c99cecf6a39b36dc09bb5da_check.png"></image> -->
+        <view wx:if="{{item.hasDone}}" class="hasDone">已接种</view>
+      </view>
+    </view>
+  </view>
+</view>

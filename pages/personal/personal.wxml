@@ -1,0 +1,202 @@
+
+<!-- 个人中心 -->
+
+<!-- 顶部 -->
+<view class="header-wrap" bindtap="{{isLogin ? '' : 'handleLogin'}}">
+  <!-- 头像，昵称，身份等 -->
+  <view class="user" bindtap="{{isLogin ? 'changeInfo' : ''}}">
+    <view class="user-avatur">
+      <image src="{{isLogin ? userInfo.avatarUrl : 'http://139.155.249.105:7071/upload_aef63590e06769093b5358f4f5eae0ab_unLogin.png'}}" />
+    </view>
+    <!-- 登录成功的样子 -->
+    <view wx:if="{{isLogin}}">
+      <text class="user-name">{{userInfo.nickName}}</text>
+      <view class="identity">
+        <view class="icon"></view>
+        <text>{{userInfo.relation}}</text>
+      </view> 
+    </view>
+    <!-- 登陆不成功的样子 -->
+    <text wx:else class="login">点击登录</text>
+  </view>
+  <!-- 收藏，关注，粉丝等 -->
+  <view class="info">
+    <view class="collect">
+      <text>{{isLogin ? userInfo.detail.collect.length : '-'}}</text>
+      <text>收藏</text>
+    </view>
+    <view class="attention">
+      <text>{{isLogin ? userInfo.detail.attention.length : '-'}}</text>
+      <text>关注</text>
+    </view>
+    <view class="fans">
+      <text>{{isLogin ? userInfo.detail.fans.length : '-'}}</text>
+      <text>粉丝</text>
+    </view>
+  </view>
+
+  <!-- 爱人和孩子部分 -->
+  <!-- <view class="lovers">
+    爱人
+    <view class="lover">
+    </view>
+    孩子
+    <view class="child">
+    </view>
+  </view> -->
+</view>
+
+<!-- 内容区 -->
+<scroll-view scroll-y="{{true}}" class="scheScroll">
+  <!-- 日程日历 -->
+  <view class="schedule">
+    <!-- 日程头部 -->
+    <view class="sche-header">
+      <view id="num" bindtouchend="touchEnd" bindtouchstart="touchStart" class="eventNum {{ele ==='num'&&isTouch?'touch':''}}">
+        <text class="today">{{schedule.day}}</text>
+        <text class="count">今天有{{schedule.list.length}}个日程</text>
+      </view>
+      <!-- 记录当天的在今年的周数 -->
+      <!-- <text id="week" bindtouchend="touchEnd" bindtouchstart="touchStart" class="week {{ele ==='week'&&isTouch?'touch':''}}">第16周</text> -->
+    </view>
+    <!-- 日程内容区 -->
+    <view class="sche-content">
+      <view id="{{item.id}}" bindtouchend="touchEnd" bindtouchstart="touchStart" class="eventItem {{ele == item.id&&isTouch?'touch':''}}" wx:for="{{schedule.list}}" wx:key="id">
+        <view class="time">
+          <view wx:if="{{item.time !== '全天'}}" class="timenum">
+            <text class="startT">{{item.time.startT}}</text>
+            <text class="endT">{{item.time.endT}}</text>
+          </view>
+          <view wx:else class="allday">全天</view>
+        </view>
+        <text class="title">{{item.msg}}</text>
+      </view>
+    </view>
+    <!-- 添加日程按钮 -->
+    <view id="add"  bindtap="showModal" data-target="AddCalendar" bindtouchend="touchEnd" bindtouchstart="touchStart" class="add {{ele ==='add'&&isTouch?'touch':''}}">添加日程</view>
+  </view>
+
+  <!-- 抽屉部分 -->
+  <!-- 将日历放入打开的部分,打开后根据选择查看近期日程 -->
+  <view class="wrap">
+    <view class='allMonth'>
+      <view class='cu-btn bg-green lg block shadow radius margin-xl' bindtap="showModal" data-target="viewModal">
+        点击查看近期日程
+      </view>
+    </view>
+    <view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
+      <text class="cuIcon-pullright"></text>
+    </view>
+    <scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}">
+      <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
+        <!-- 遍历外层 -->
+        <!-- 截取后三个 -->
+        <view class="cu-item" wx:for="{{display}}" wx:key="day">
+          <view class="schedule">
+            <!-- 日程头部 -->
+            <view class="sche-header">
+              <view id="num" bindtouchend="touchEnd" bindtouchstart="touchStart" class="eventNum {{ele ==='num'&&isTouch?'touch':''}}">
+                <text class="today">{{item.day}}</text>
+                <text class="count"> 有{{item.list.length}}个日程</text>
+              </view>
+              <!-- 记录当天的在今年的周数 -->
+              <!-- <text id="week" bindtouchend="touchEnd" bindtouchstart="touchStart" class="week {{ele ==='week'&&isTouch?'touch':''}}">第16周</text> -->
+            </view>
+            <!-- 日程内容区--抽屉 -->
+            <view class="sche-content">
+              <view id="{{list.id}}" bindtouchend="touchEnd" bindtouchstart="touchStart" class="eventItem {{ele == list.id&&isTouch?'touch':''}}" wx:for="{{item.list}}" wx:for-item="list" wx:key="id">
+                <view class="time">
+                  <view wx:if="{{list.time !== '全天'}}" class="timenum">
+                    <text class="startT">{{list.time.startT}}</text>
+                    <text class="endT">{{list.time.endT}}</text>
+                  </view>
+                  <view wx:else class="allday">全天</view>
+                </view>
+
+                <text class="title">{{list.msg}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</scroll-view>
+
+<!-- 创建日程的弹窗 -->
+<view id="dialog-wrap" class="cu-modal {{modalName=='AddCalendar'?'show':''}}" bindtap="hanleWrapTap">
+  <view id="dialog" class="cu-dialog dialog">
+    <view class="dialogBar">
+      <view class="icon dialog-close" bindtap="hideModal">
+        <text class="cuIcon-close"></text>
+      </view>
+      <view class="icon dialog-add" bindtap="handleAdd">
+        <text class="cuIcon-check"></text>
+      </view>
+    </view>
+    <view class="dialogContent">
+      <view class="dialog-title">
+        <text >创建日程</text>
+      </view>
+      <view class="dialog-detail">
+        <view class="event-title">
+          <input bindinput="saveMsg" value="{{dialogMsg}}" placeholder="请输入事件标题" placeholder-style="color:#bbb; font-weight: 300;" type="text" />
+        </view>
+        <view class="allDay">
+          <text>全天事件</text>
+          <switch bindchange="handleAllDay" checked="{{isAllDay}}" class="isAllDay"/>
+        </view>
+        <view  class="date cu-form-group">
+          <text class="title">日期选择</text>
+          <picker mode="date" value="{{date}}" start="2015-09-01" end="2050-09-01" bindchange="DateChange">
+            <view class="picker">
+              {{date}}
+            </view>
+          </picker>
+        </view>
+        <view style="{{isAllDay ? 'display:none':'' }}" class="date cu-form-group">
+          <text class="title">开始时间</text>
+          <picker id="startTime" mode="time" value="{{startTime}}" bindchange="TimeChange">
+            <view class="picker">
+              {{startTime}}
+            </view>
+          </picker>
+        </view>
+        <view style="{{isAllDay ? 'display:none':'' }}" class="date cu-form-group">
+          <text class="title">结束时间</text>
+          <picker id="endTime" mode="time" value="{{endTime}}" bindchange="TimeChange">
+            <view class="picker">
+              {{endTime}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 填写宝宝年龄的回调 -->
+<view id="dialog-wrap" class="cu-modal {{modalName=='selectAge'?'show':''}}">
+  <view id="dialog" class="cu-dialog dialog">
+    <view class="dialogBar">
+      <view class="icon dialog-close" bindtap="hideModal">
+        <text class="cuIcon-close"></text>
+      </view>
+      <view class="icon dialog-add" bindtap="selectBabyage">
+        <text class="cuIcon-check"></text>
+      </view>
+    </view>
+    <view class="dialogContent">
+      <view class="dialog-detail">
+        <view  class="date cu-form-group">
+          <text class="title">宝宝的出生日期</text>
+          <picker mode="date" id="babyDate" value="{{babyDate}}" start="2015-09-01" end="2050-09-01" bindchange="DateChange">
+            <view class="picker">
+              {{babyDate}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

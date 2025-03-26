@@ -1,0 +1,36 @@
+
+
+<view class="bg-white cu-form-group">
+		<view class="title">头像</view>
+		<view class="cu-avatar radius bg-gray">
+      <image class="avatar" src="{{avatar}}" />
+    </view>
+</view>
+
+
+<view class="cu-form-group">
+  <view class="title">宝宝的</view>
+  <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+    <view class="picker">
+      {{index !== '' ? picker[index] : '你是宝宝的' }}
+    </view>
+  </picker>
+</view>
+
+<view class="cu-form-group">
+		<view class="title">用户名</view>
+    <view class="nickName">
+      <view >{{nickName}}</view>
+    </view>
+</view>
+
+<view class="cu-form-group">
+		<view class="title">宝宝出生日期</view>
+    <view class="babyDate">
+      <picker mode="date" id="babyDate" value="{{babyDate}}" start="2015-09-01" end="2050-09-01" bindchange="DateChange">
+        <view class="picker">
+          {{babyDate}}
+        </view>
+      </picker>
+    </view>
+</view>

@@ -1,0 +1,14 @@
+<scroll-view scroll-x class="bg-white nav"  scroll-with-animation scroll-left="{{scrollLeft}}">
+   <view id="{{'nav' + index}}" class="cu-item {{index==TabCur?'text-orange cur':''}}" wx:for="{{babyList}}" wx:key="id" bindtap="tabSelect" data-id="{{index}}" >
+    第{{item.id}}周
+  </view>
+</scroll-view>  
+  <view class="text">
+  <image bindtap="tabSub" class="left" src="http://139.155.249.105:7071/upload_d2970d403508af009231c225693104d0_left.png"></image>
+  <image src="{{babyList[TabCur].url}}"></image>
+  <image bindtap="tabAdd" class="right" src="http://139.155.249.105:7071//upload_a35305f385675a77cc01d2db8082ee05_right.png"></image>
+  <view class="text-01">{{babyList[TabCur].days}}</view>
+  <view class="text-02">体重：{{babyList[TabCur].weight}}公斤</view>
+  <view class="text-02"> 身高：{{babyList[TabCur].tall}}厘米</view>
+  <view class="text-03">{{babyList[TabCur].text}}</view>
+</view>

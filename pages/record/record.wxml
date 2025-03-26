@@ -1,0 +1,45 @@
+<!-- 时光轴页面 -->
+<view class="cu-timeline" wx:for="{{List}}" wx:key="id">
+  <view class="cu-time">{{item.time}}</view>
+  <view class="cu-item">
+    <view class="content {{item.bg}}">
+      <text>{{item.daytime}}</text> {{item.text}}
+      <icon wx:if="{{showImg == item.id}}" bindtap="showImg" data-id="{{item.id}}" class="icon icon-yanjing"></icon>
+      <icon wx:else bindtap="showImg" data-id="{{item.id}}" class="icon .icon-biyan"></icon>
+    </view>
+  </view>
+  <image wx:if="{{showImg == item.id}}" src="{{item.img}}"></image>
+</view>
+
+<!-- 添加记录 -->
+<view class="more" bindtap="showModal" data-target="DialogModal1"></view>
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog add">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">美好时光</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="detail">
+      <textarea placeholder="请输入内容" bindinput="handleInput" value="{{detail}}"></textarea>
+      <view class="showImg" wx:if="{{imgList.length == 1}}">
+        <image src="{{imgList[0]}}"/>
+        <view class="delImg" catchtap="delImg">
+          <text class="cuIcon-close" />
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+      <button class="addImg" bindtap="chooseImage">
+        <icon class="cuIcon-upload" />
+        <text >上传图片</text>
+      </button>
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="handleAdd">添加</button>
+      </view>
+    </view>
+  </view>
+</view>
+

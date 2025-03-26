@@ -1,0 +1,41 @@
+page{
+  background-color: white;
+}
+.text{
+  text-align: center;
+}
+image{
+  width: 350rpx;
+  height: 350rpx;
+}
+.left{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 100rpx;
+  margin-bottom: 100rpx;
+}
+.right{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 100rpx;
+  margin-bottom: 100rpx;
+}
+.text-01{
+  font-weight: 600;
+  font-size: 50rpx;
+}
+.text-02{
+  display: inline-block;
+  color: gray;
+  margin: 30rpx;
+  font-size: 24rpx;
+}
+.text-03{
+  color: gray;
+  text-align: left;
+  width: 90%;
+  margin-left: 5%;
+  padding: 40rpx;
+  background-color:#e1d7f0;
+  border-radius:25rpx 25rpx 25rpx 25rpx;
+}

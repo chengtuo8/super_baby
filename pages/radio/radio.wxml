@@ -1,0 +1,19 @@
+<view class="body">
+  <view class="bg-white nav">
+    <view class="flex text-center">
+      <view class="cu-item flex-sub {{index==TabCur?'text-orange cur bold':''}}" wx:for="{{radioList}}" wx:key
+        bindtap="tabSelect" data-id="{{index}}">
+        {{item.id}}
+      </view>
+    </view>
+  </view>
+
+ <image class="bg {{isPlay && 'bgAnimation'}}" src="{{radioList[TabCur].url}}"></image>
+  <view class='icon'>
+    <image bindtap="handlePrevMusic" src="http://139.155.249.105:7071/upload_75c55ee4064d1f2200629dfb2c1e6bd3_left.png"></image>
+    <image bindtap="handlePlay" class="big" src="{{isPlay ? 'http://139.155.249.105:7071/upload_79eda852f28ade1e47e1711d6ce8454e_play.png' : 'http://139.155.249.105:7071/upload_af7add7343289e4b4ed5fa7209bb0592_pause.png'}}"></image>
+    <image bindtap="handleNextMusic" src="http://139.155.249.105:7071/upload_2866d3c45e53ab8f98be5efc963b37c0_right.png"></image>
+  </view>
+
+ 
+</view>

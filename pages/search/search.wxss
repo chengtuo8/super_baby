@@ -1,0 +1,91 @@
+page{
+  background-color: #fff;
+}
+
+/* 搜索框 */
+.box view.cu-bar {
+  margin-top: 20rpx; 
+}
+
+.msgs {
+  display: flex;
+  flex-direction: column;
+  font-size: 35rpx;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.msgs .msg-title {
+  padding: 0 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  background-color: #fff;
+}
+
+.cuIcon-search {
+  font-size: 30rpx;
+}
+
+/* 热搜内容 */
+.content {
+  padding: 10rpx 30rpx;
+}
+
+.title{
+  font-size: 30rpx;
+  font-weight: 600;
+  letter-spacing: 2rpx;
+  margin-bottom: 30rpx;
+}
+
+.hot-search .msgWrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 30rpx;
+}
+
+.hot-search .msgWrap .msg {
+  flex: 50%;
+  text-align: left;
+  font-size: 30rpx;
+  margin-bottom: 25rpx;
+
+}
+
+.hot-search .msgWrap .msg text:first-child{
+  margin-right: 20rpx;
+  font-weight: 600;
+}
+
+.hot-search .msgWrap .msg:nth-child(n+5) text:first-child{
+  color: #aaa;
+}
+
+.history-search {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 26rpx;
+}
+
+.history-search .msgWrap{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.history-search .msgWrap .msg {
+  max-width: 220rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 1rpx;
+  margin: 0 15rpx 20rpx 0;
+  padding: 10rpx 25rpx;
+  border-radius: 10rpx;
+  background-color: rgb(244, 244, 244);
+}
+
+
+
+
+

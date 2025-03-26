@@ -1,0 +1,97 @@
+<!-- 交流区部分 -->
+<view class="talkContainer">
+  <!-- 头部区域 -->
+  <view class="header">
+    <view class="top" >
+      <image class="logo" src="{{userInfo.avatarUrl}}"></image>
+      <view class="search" bindtap="handleSearch">
+        <icon class="icon icon-sousuo"></icon>
+        <text>交流区</text>
+      </view>
+      <view class="more" bindtap="addMsg" data-target="bottomModal"></view>
+    </view>
+  </view>
+  
+  <!-- 内容展示部分 -->
+  <!-- 导航区域 -->     
+
+  <view  class="content">
+    <!-- <scroll-view scroll-x class="navScroll bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+      <view class="navItem cu-item" wx:for="{{navList}}" wx:key="id" bindtap="tabSelect" data-id="{{index}}">
+        <view class="navContent {{index==TabCur?'active':''}}">
+          {{item.title}}
+        </view>
+      </view>
+    </scroll-view>
+    <view bindtap="handleSearch" class="s-icon icon icon-sousuo" style="opacity:{{1 - height/88}}"></view> -->
+
+    <scroll-view scroll-y="{{true}}" class="contentScroll" bindscrolltolower="getMoreMsg" >
+      <!-- <scroll-view scroll-x class="navScroll bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+        <view class="navItem cu-item" wx:for="{{navList}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+          <view class="navContent {{index==TabCur?'active':''}}">
+            {{item.title}}
+          </view>
+        </view>
+      </scroll-view> -->
+      <view bindtap="handleToMsg" id="{{item.id}}" class="contentItem" wx:for="{{msgList}}" wx:key="id">
+        <text class="title">{{item.title}}</text>
+        <view class="detail">
+          <view class="common">
+            <view class="userInfo">
+              <image class="avatar" src="{{item.userPic}}" />
+              <view class="nickname">{{item.nickName}}</view>
+            </view>
+            <view class="msg">
+              {{item.msg}}
+            </view>
+          </view>
+          <image wx:if="{{item.img}}" class="detailImg" src="{{item.img}}" />
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<!-- 写文章部分 -->
+<view class="editMsg cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white">
+      <text class="close cuIcon-close" bindtap="hideModal"></text>
+      <text class="publish" bindtap="publishMsg">发布</text>
+    </view>
+    <view class="msg padding-sm">
+      <view class="title">
+        <input bindinput="inputTitle" placeholder="请输入标题" value="{{title}}"/>
+      </view>
+      <view class="detail">
+        <view class="cu-form-group">
+          <textarea bindinput="inputDetail" maxlength="-1" placeholder="请输入正文" value="{{msgdetail}}"></textarea>
+        </view>
+        <!-- <textarea bindinput="inputDetail" placeholder="请输入正文"></textarea> -->
+      </view>
+    </view>
+    
+    <!-- <view class="choosePic">
+      <view class="cu-bar bg-white margin-top">
+        <view class="action">
+          图片上传
+        </view>
+        <view class="action">
+          {{imgList.length}}/4
+        </view>
+      </view>
+      <view class="cu-form-group">
+        <view class="grid col-4 grid-square flex-sub">
+          <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+            <image src='{{imgList[index]}}' mode='aspectFill'></image>
+            <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+              <text class="cuIcon-close"></text>
+            </view>
+          </view>
+          <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+            <text class="cuIcon-cameraadd"></text>
+          </view>
+        </view>
+      </view>
+    </view> -->
+  </view>
+</view>

@@ -1,0 +1,50 @@
+<!-- 搜索页面 -->
+<view class="cu-bar search bg-white">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input bindinput="handleSearch" bindfocus="show" type="text" placeholder="搜索图片、文章、视频" confirm-type="search"></input>
+  </view>
+  <view class="action">
+    <text bindtap="handleBack" class="close">取消</text>
+  </view>
+</view>
+<!-- <view class="content">
+  <view class="hot-search">
+    <text class="title">热搜</text>
+    <view class="msgWrap">
+      <text class="msg" wx:for="{{8}}" wx:key="index">
+        <text>{{index + 1}}</text>
+        <text>明日方舟二周年</text>
+      </text>
+    </view>
+  </view>
+  <view class="history-search">
+    <text class="title">搜索历史</text>
+    <view class="msgWrap">
+      <text class="msg">
+        <text>明日方舟交叉火力支援</text>
+      </text>
+      <text class="msg">
+        <text>交叉火力支援</text>
+      </text>
+      <text class="msg">
+        <text>交叉火力</text>
+      </text>
+      <text class="msg">
+        <text>大雪将至</text>
+      </text>
+      <text class="msg">
+        <text>jt8-2</text>
+      </text>
+    </view>
+      
+
+  </view>
+</view> -->
+
+<view bindtap="hideWrap" wx:if="{{display}}" id="msgs" class="msgs">
+  <view class="msg-title" bindtap="handleToMsg" wx:for="{{msgs}}" id="{{item.id}}" wx:key="id">
+    <view >{{item.title}}</view>
+  </view>
+</view>
+

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "AddCalendar": "/components/AddCalendar/AddCalendar"
+  },
+  "navigationBarTitleText": "个人中心"
+}

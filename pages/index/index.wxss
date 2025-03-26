@@ -1,0 +1,126 @@
+page{
+  background-color:#e2f7e979;
+}
+.plate{
+  width: 100%;
+  background-color:white;
+  box-shadow:1rpx 2rpx 2rpx 5rpx rgba(0, 0, 0, 0.014);
+  position: relative;
+  margin-top: 40rpx;
+}
+.title{
+  margin:30rpx 20rpx;
+  margin-right: 50%;
+  font-size: 34rpx;
+  font-weight: 600;
+  display: block;
+}
+
+.grow{
+  width: 100%;
+  height: 400rpx;
+  background-color: white;
+  position: relative;
+  top:0rpx;
+}
+.babypic{
+  display: inline-block;
+  position: relative;
+  top: 10rpx;
+  left:450rpx;
+  width: 280rpx;
+  height: 280rpx;
+}
+.grow-bg{
+  width: 100vw;
+  position: absolute;
+  bottom: 0rpx;
+  left: 0;
+  right: 0;
+  height: 200rpx;
+  border-radius: 0rpx 0rpx 30rpx 30rpx;
+  border-color: #f1f1f1;
+}
+.grow-text{
+  display: inline-block;
+  position: absolute;
+  top:10rpx;
+  left: 50rpx;
+  width: 400rpx;
+  height: 250rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color: gray;
+}
+.grow-text-one{
+  font-size: 34rpx;
+  font-weight: 550;
+  color: #000;
+  margin-bottom: 30rpx;
+}
+.grow-text-two{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient:vertical;
+}
+
+
+.time{
+  position: relative;
+  top: -50rpx;
+  left: 3%;
+  width: 94%;
+  height: 100rpx;
+  line-height: 100rpx;
+  align-items: center;
+  background-color: white;
+  box-shadow:1rpx 2rpx 2rpx 5rpx rgba(0, 0, 0, 0.014);
+  border-radius: 5px 5px;
+  display: flex;
+}
+.time-text{
+  flex: 6;
+  margin-left: 30rpx;
+  color: rgba(128, 128, 128, 0.589);
+  font-size: 30rpx;
+}
+.time navigator image{
+  flex: 2;
+  margin-top: 40rpx;
+  margin-right: 80rpx;
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.menu{
+  margin-top: -10rpx;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+.menu .son{
+  flex: 2;  
+  flex-wrap: wrap;
+  width: 320rpx;
+  height: 320rpx;
+  margin-left: 40rpx;
+  margin-bottom: 40rpx;
+  background-color:white;
+  text-align: center;
+  border-radius: 10% 10% 10% 10%;
+  box-shadow:1rpx 2rpx 2rpx 5rpx rgba(0, 0, 0, 0.014);
+}
+.menu image{
+  margin-top: 70rpx;
+  height: 90rpx;
+  width: 90rpx;
+}
+.menu-text{
+  margin-top: 15rpx;
+  font-size: 28rpx;
+  text-align: center;
+  height: 30rpx;
+  line-height: 30rpx;
+}

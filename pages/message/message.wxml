@@ -1,0 +1,54 @@
+<view class="msg-wrap">
+  <view class="close"></view>
+  <view class="msg-title">
+    <text>{{msg.title}}</text>
+  </view>
+  <view class="userInfo {{scrollTop > 95 ? 'fixed' : ''}}">
+    <image class="avatar" src="{{msg.userPic}}" />
+    <text class="nickName">{{msg.nickName}}</text>
+  </view>
+  <view class="msg-detail" style="{{scrollTop > 95 ? 'margin-top: 110rpx;' : ''}}">
+    <text>
+       {{msg.msg}}
+    </text>
+  </view>
+  <!-- 底部功能 -->
+  <view class="feature">
+    <view bindtap="handleActive" id="appreciate" class="appreciate {{appreciate ? 'active' : ''}}">
+      <icon wx:if="{{appreciate}}" class="cuIcon-appreciatefill" />
+      <icon wx:else class="cuIcon-appreciate" />
+      <text>{{msg.appreciate}}</text>
+    </view>
+    <view class="discuss" bindtap="showModal" data-target="RadioModal">
+      <icon class="cuIcon-comment" />
+      <text>{{msg.discuss}}</text>
+    </view>
+    <view bindtap="handleActive" id="collect" class="collect {{collect ? 'active' : ''}}">
+      <icon wx:if="{{collect}}" class="cuIcon-favorfill"/>
+      <icon wx:else class="cuIcon-favor"/>
+      <text>{{msg.collect}}</text>
+    </view>
+    <button class="transmit" open-type="share" catchtap="">
+      <icon class="cuIcon-forward" />
+      <text>{{msg.transmit}}</text>
+    </button>
+    
+  </view>
+
+  <!-- 评论 -->
+
+  <view class="cu-modal {{modalName=='RadioModal'?'show':''}}" bindtap="hideModal">
+    <view class="cu-dialog" catchtap>
+      <radio-group class="block">
+        <view class="cu-list menu text-left">
+          <view class="cu-item" id="{{item.id}}" bindtap="handleComment" wx:for="{{starMsg}}" wx:key="id">
+            <label class="flex justify-between align-center flex-sub">
+              <view class="flex-sub">{{item.title}}</view>
+              <radio class="round"></radio>
+            </label>
+          </view>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,36 @@
+<view class="VerticalBox">
+  <scroll-view class="VerticalNav nav paddinglr" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}">
+    <view class="cu-item {{index==TabCur?'text-orange cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect'
+      data-id="{{index}}">
+      {{item.name}}
+    </view>
+  </scroll-view>
+
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation
+    scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+    <view>
+      <view class='cu-bar solid-bottom bg-white'>
+        <view class='action'>
+          <text class='cuIcon-title text-orange'></text>{{list[MainCur].name}} </view>
+      </view>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item" wx:for="{{list[MainCur].foodList}}" wx:for-item="list" wx:for-index="i">
+          <view class="cu-avatar round lg" style="background-image:url({{list.url}});"></view>
+          <view class="content">
+            <view class="text-grey">{{list.name}}</view>
+            <view class="text-gray text-sm flex">
+                <view>
+                  <!-- <icon class="{{list.yuezi === 'yellow' ? 'cuIcon-infofill' : 'cuIcon-roundcheckfill'}} text-{{list.yuezi}}"></icon>  -->
+                  <!-- <icon class="{{list.buruqi === 'yellow' ? 'cuIcon-infofill' : 'cuIcon-roundcheckfill'}} text-{{list.buruqi}} marginleft"></icon>  -->
+                  <!-- <icon class="{{list.fushi === 'yellow' ? 'cuIcon-infofill' : 'cuIcon-roundcheckfill'}} text-{{list.fushi}} marginleft"></icon>  -->
+                  <text class="{{list.yuezi}}">月子</text>
+                  <text class="{{list.buruqi}} marginleft">哺乳期</text>
+                  <text class="{{list.fushi}} marginleft">辅食</text>
+                </view> 
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

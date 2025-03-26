@@ -1,0 +1,59 @@
+<!-- 首页展示栏 周期变化-->
+<navigator class="grow" hover-class="none" url="../handbook/handbook?week={{week}}">
+	<view class="grow-text">
+  <view class="grow-text-one">宝宝 {{daily}}天了</view>
+  <view class="grow-text-two">{{babyList[week - 1].text}}</view>
+  </view> 
+<image class="babypic" src="{{babyList[week - 1].url}}"></image>
+<image class="grow-bg" src="http://139.155.249.105:7071/upload_d5931392651d3ff98e11f11d679bff38_wave.png"></image>
+</navigator>
+
+<!-- 时光轴 -->
+<view class="time">
+<view class="time-text">记下宝宝的每个瞬间</view>
+<navigator hover-class="none" url="../record/record"><image src="http://139.155.249.105:7071/upload_79f48cf77f91d6607f1e152b3fa190e2_camera.png"></image></navigator>
+</view>
+
+<!-- 菜单栏 -->
+<view class="menu">
+<navigator url="../eat/eat" hover-class="none">
+  <view class="son">
+    <image src="http://139.155.249.105:7071/upload_b40b419d9ab99267e5a4f17bfb72678f_eat.png"></image>
+    <view class="menu-text">能不能吃</view>
+  </view>
+</navigator>
+
+<navigator url="../vaccine/vaccine" hover-class="none">
+  <view class="son">
+    <image src="http://139.155.249.105:7071/upload_b4241ded7a3146edcd6a9c398fcafbe1_vaccine.png"></image>
+      <view class="menu-text">疫苗助手</view>
+  </view>
+</navigator>
+
+<navigator url="../radio/radio" hover-class="none">
+  <view class="son"> 
+    <image src="http://139.155.249.105:7071/upload_da5ffa3408ef6d1ff4776346586184ee_radio.png"></image>
+    <view class="menu-text">宝宝电台</view>
+  </view>
+</navigator>
+<navigator url="../weather/weather" hover-class="none">
+  <view class="son">
+    <image src="http://139.155.249.105:7071/upload_a0937371122e4e6974c1c1b0685457f1_weather.png"></image>
+      <view class="menu-text">生活指数</view>
+  </view>
+</navigator>
+<navigator url="../communicate/communicate" hover-class="none">
+  <view class="son">
+    <image src="http://139.155.249.105:7071/upload_067aa22d212dec2760d14e8187753aa1_communicate.png"></image>
+    <view class="menu-text">讨论交流</view>
+  </view>
+</navigator>
+<navigator url="../personal/personal" hover-class="none"> 
+  <view class="son"> 
+    <image src="http://139.155.249.105:7071/upload_5163baa635f2f3f38da45b1d2c52aa0f_personal.png"></image>
+    <view class="menu-text">个人中心</view>
+  </view>
+</navigator>
+</view>
+
+

@@ -1,0 +1,374 @@
+page {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: white;
+}
+text{
+  font-size:28rpx;
+}
+
+/* 顶部 */
+.header-wrap {
+  padding: 0 20rpx 30rpx;
+  /* box-sizing: border-box; */
+  /* overflow: hidden; */
+  border-bottom: 2rpx solid #eee;
+}
+
+.header-wrap .user {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 40rpx 0;
+}
+
+
+.user .user-avatur {
+  display: flex;
+}
+
+.user .user-avatur image{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  margin-bottom: 10rpx;
+  margin-right: 20rpx;
+  background-color: #fff;
+}
+
+.user-name {
+  display: block;
+  font-size: 45rpx;
+  height: 75rpx;
+  line-height: 75rpx; 
+}
+
+.identity {
+  height: 75rpx;
+  line-height: 75rpx;
+  font-size: 25rpx;
+  
+}
+
+.login {
+  font-size: 35rpx;
+  font-weight: 350;
+}
+
+.login::after {
+  position: absolute;
+  top: calc(50% - 18rpx);
+  right: 20rpx;
+  font-family: "iconfont" !important;
+  content: "\e641";
+  display: block;
+  font-size: 35rpx;
+  color: #999;
+}
+
+.info {
+  display: flex;
+  text-align: center;
+}
+
+.info view{
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 20rpx;
+}
+
+.info view text:first-child {
+  font-size: 28rpx;
+  margin-bottom: 5rpx;
+}
+
+.info .attention::before,
+.info .attention::after {
+  position: absolute;
+  top: calc(50% - 20rpx);
+  content: "";
+  display: block;
+  width: 2px;
+  height: 40rpx;
+  background-color: #ddd;
+}
+
+.info .attention::before {
+  left: 0;
+}
+.info .attention::after {
+  right: 2rpx;
+}
+
+/* 内容区 */
+.scheScroll {
+  width: 100%;
+  height: 800rpx;
+}
+
+/* 日程日历 */
+.schedule {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 20rpx auto;
+  padding: 20rpx;
+  width: 85%;
+  /* height: 300rpx; */
+  border-radius: 40rpx;
+  background-color: rgba(0, 0, 0, .02);
+}
+
+/* 日程头部 */
+.schedule .sche-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.schedule .sche-header .eventNum {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  padding: 15rpx;
+  border-radius: 20rpx;
+  transition: background .1s;
+}
+
+.schedule .touch {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.schedule .sche-header .eventNum .today {
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: 600;
+  border-radius: 50%;
+  margin-right: 10rpx;
+  background: #1FA2FF;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.schedule .sche-header .eventNum .count {
+  color: #000;
+  letter-spacing: 4rpx;
+}
+
+.schedule .sche-header .week {
+  position: relative;
+  padding: 10rpx;
+  margin-left: auto;
+  margin-right: 40rpx;
+  font-size: 25rpx;
+  color: #999;
+  border-radius: 15rpx;
+}
+
+/* 日程内容区 */
+.sche-content {
+  padding: 0 15rpx;
+}
+
+.eventItem {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 20rpx 25rpx;
+  border-radius: 18rpx;
+  /* border: 2rpx solid red; */
+  margin-bottom: 25rpx;
+  background-color: rgba(215, 221, 232, .4);
+}
+.sche-content .eventItem::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10rpx;
+  height: 100%;
+  border-radius: 18rpx 0 0 18rpx;
+  background-color: rgba(117, 127, 154);
+}
+
+.sche-content .eventItem .time {
+  display: flex;
+  flex-direction: column;
+  width: 78rpx;
+  margin-right: 45rpx;
+}
+
+.sche-content .eventItem .time .timenum {
+  display: flex;
+  flex-direction: column;
+}
+
+.sche-content .eventItem .time .startT {
+  font-size: 28rpx;
+  margin-bottom: 5rpx;
+}
+
+.sche-content .eventItem .time .endT {
+  font-size: 20rpx;
+  color: #999;
+}
+
+.sche-content .eventItem .time .allday {
+  font-size: 28rpx;
+  width: 78rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+}
+
+.sche-content .eventItem .title {
+  align-self: flex-start;
+  font-size: 28rpx;
+}
+
+.schedule .add {
+  margin: 0 15rpx;
+  color: black;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 80rpx;
+  background-color: rgba(215, 221, 232, .4);
+}
+
+/* 抽屉效果 */
+
+.allMonth {
+  padding: 0 30rpx;
+  text-align: center;
+}
+
+.allMonth view {
+  background: #2980B9;  /* fallback for old browsers */
+  background: linear-gradient(to right, #6DD5FA, #2980B9); 
+}
+
+.DrawerWindow {
+  position: fixed;
+  width: 85vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  transform: scale(0.9, 0.9) translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+  background: rgba(222,222,222,.4);
+}
+
+.DrawerWindow.show {
+  transform: scale(1, 1) translateX(0%);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.DrawerWindow .schedule {
+  padding: 0;
+}
+
+/* 打开后的右边的黑色阴影 */
+.DrawerClose {
+  position: fixed;
+  width: 40vw;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  color: transparent;
+  padding-bottom: 30rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.6));
+  letter-spacing: 5px;
+  font-size: 50rpx;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.DrawerClose.show {
+  opacity: 1;
+  pointer-events: all;
+  width: 15vw;
+  color: #fff;
+}
+
+/* 添加日程弹框 */
+.dialog {
+  z-index: 10;
+  width: 80%;
+  text-align: left;
+  padding: 20rpx 30rpx;
+}
+.dialogBar {
+  display: flex;
+  /* justify-content: space-between; */
+  justify-content: flex-start;
+}
+
+.dialogBar .icon {
+  margin: 20rpx 10rpx;
+  font-size: 50rpx;
+}
+
+.dialogBar .icon.dialog-add {
+  margin-left: auto;
+}
+
+.dialogContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.dialogContent .dialog-title {
+  margin: 0 20rpx;
+  padding-bottom: 20rpx;
+  font-size: 40rpx;
+  font-weight: 300;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.dialog-detail {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40rpx;
+}
+
+.dialog-detail .event-title {
+  width: 100%;
+  height: 80rpx;
+  margin-bottom: 30rpx;
+  border-radius: 30rpx;
+  background-color: #eee;
+}
+
+.dialog-detail .event-title input {
+  display: block;
+  padding: 0 20rpx;
+  width: 100%;
+  height: 100%;
+}
+
+.dialog-detail .allDay {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.dialog-detail .date text {
+  font-size: 28rpx;
+}
+
+

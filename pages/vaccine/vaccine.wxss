@@ -1,0 +1,118 @@
+page{
+  background-color: white;
+}
+.plate{
+  border-radius: 18rpx;
+  background-color: #ffffff;
+  border:1rpx solid  #e7ebed ;
+  box-shadow: 0 0 10rpx 0 rgba(0, 0, 0, 0.2);
+  margin-top: 30rpx;
+}
+.plate view{
+  margin:5rpx 0rpx;
+}
+.vas{
+  position: relative;
+  display: flex;
+}
+.vas view{
+  flex: 2;
+}
+radio{
+  transform:scale(0.7);
+}
+.title{
+  font-size: 32rpx;
+  font-weight:600;
+  color:black;
+  padding:30rpx 0rpx 10rpx 30rpx;
+}
+.text{
+  padding: 10rpx;
+}
+.text-01{
+  font-size: 32rpx;
+  color: #666666;
+}
+.text-02{
+  text-indent: 2.5em;
+  font-size: 28rpx;
+  height: 40rpx;
+  color: #666666;
+}
+.text-03{
+  text-indent: 2.5em;
+  font-size: 28rpx;
+  height: 40rpx;
+  color:#aaaaaa;
+}
+.divLine{
+  position: relative;
+  background: #e7ebed;
+  left: 35rpx;
+  top: 26rpx;
+  width: 700rpx;
+  height: 1rpx;
+ }
+.must{
+  position: relative;
+  top: 50rpx;
+  right: 100rpx;
+  height: 50rpx;
+  width: 100rpx;
+  border-radius: 10% 10% 10% 10%;
+  overflow: hidden;
+}
+.hidden{
+  display: none;
+}
+
+/* 章 */
+/* .hasDone { 
+  position: absolute;
+  right: 185rpx;
+  top: 12rpx;
+  font-size: 150rpx;
+  color: #15d322;
+} */
+
+.hasDone {
+  position: relative;
+  top: 50rpx;
+  right: 100rpx;
+  width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 10% 10% 10% 10%;
+  overflow: hidden;
+  background-color: rgba(255, 165, 0, .7);
+}
+
+.overdue {
+  display: none;
+  position: absolute;
+  right: 174rpx;
+  top: 3rpx;
+  font-size: 170rpx;
+  color: #999;
+}
+
+.overtime .overdue {
+  display: block;
+}
+
+.overtime view {
+  color: #999;
+}
+
+.title text {
+  display: none;
+}
+
+.title text.nowadays {
+  display: inline;
+  color: rgba(255, 0, 0, .7);
+}
+

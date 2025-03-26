@@ -1,0 +1,44 @@
+<view class="header-modular" wx:if="{{now}}">
+	<image class="bg-wave" src="https://codermoyv.gitee.io/coder-moyv/assets/images/wechat/bg_wave.gif"></image>
+	<view class="row">
+		<view class="row location-wrap" bindtap="selectLocation">
+			<view class="title">{{City}} {{County}}</view>
+		</view>
+	</view>
+	<view class="row">
+		<view class="tmp">{{now.temp}}°</view>
+		<image class="icon-weather"
+			src="https://codermoyv.gitee.io/coder-moyv/assets/images/wechat/weather_custom/{{now.icon}}.png"></image>
+	</view>
+	<view class="tips-wrap">
+		<view class="tips ">{{now.windDir}} {{now.windScale}}级</view>
+		<view class="tips ">湿度 {{now.humidity}}%</view>
+		<view class="tips ">气压 {{now.pressure}}Pa</view>
+	</view>
+</view>
+
+<view class="card-modular " wx:if="{{hourly}}">
+	<view class="title">24小时预报</view>
+	<view class="card-wrap">
+		<block wx:for="{{hourly}}" wx:key="index">
+			<view class="item hourly">
+				<view class="text-gray">{{item.time}}</view>
+				<image class="icon"
+					src="https://codermoyv.gitee.io/coder-moyv/assets/images/wechat/weather_custom/{{item.icon}}.png"></image>
+				<view class="text-primary mb-32">{{item.temp}}°</view>
+				<view>{{item.windDir}}</view>
+				<view class="text-gray">{{item.windScale}}级</view>
+			</view>
+		</block>
+	</view>
+</view>
+
+<view class="card-modular " wx:if="{{life}}" wx:for="{{life}}" wx:key="index">
+	<view class="title">{{life[index].name}}</view>
+	<view class="card-box">
+		<image src='{{picList[index]}}'></image>
+		<view>级别描述：<text class="black">{{life[index].category}}</text></view>
+		<view>指数级别：<text class="black">{{life[index].level}}</text></view>
+		<view>母婴注意事项：<text class="black">{{life[index].text}}</text></view>
+	</view>
+</view>
